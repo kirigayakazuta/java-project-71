@@ -1,38 +1,28 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.Callable;
 
 @Command(name = "gendiff ", mixinStandardHelpOptions = true, version = "gendiff 1.0",
         description = "Compares two configuration files and shows a difference.")
-public class App {
+public class App implements Callable<Integer> {
     @Parameters(paramLabel = "filepath1", description = "path to first file")
-    private File filepath1;
+    private String filepath1;
 
     @Parameters(paramLabel = "filepath2", description = "path to second file")
-    private File filepath2;
+    private String filepath2;
 
     @Option(names = {"-f", "--format"}, paramLabel = "format", description = "output format [default: stylish]",
             defaultValue = "stylish")
     private String format = "stylish";
 
-    public static String readFile(String path) throws Exception {
-        Path fullPath = Paths.get(path).toAbsolutePath().normalize();
-        return Files.readString(fullPath);
-    }
-
-    public static Map<String, String> getData(String content) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(content, Map.class);
+    @Override
+    public Integer call() throws Exception {
+        System.out.println(Differ.generate(filepath1, filepath2));
+        return 0;
     }
 
     public static void main(String[] args) {
