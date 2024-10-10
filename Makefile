@@ -5,7 +5,7 @@ run-dist:
 	cd app && ./build/install/app/bin/app
 
 test:
-	cd app && ./gradlew test -q
+	cd app && ./gradlew test
 
 linter:
 	cd app && ./gradlew checkstyleMain
