@@ -5,8 +5,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: test
       - uses: actions/checkout@v4
-        with:
-          java-version: '21'
       - run: make test
