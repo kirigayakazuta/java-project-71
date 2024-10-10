@@ -8,6 +8,5 @@ jobs:
       - name: test
       - uses: actions/checkout@v4
         with:
-          distribution: 'temurin'
           java-version: '21'
       - run: make test
