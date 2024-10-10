@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Differ {
     public static String readFile(String path) throws Exception {
@@ -26,7 +27,7 @@ public class Differ {
         Map<String, String> generalJson = new HashMap<>();
         generalJson.putAll(json1);
         generalJson.putAll(json2);
-        List<String> keyList = generalJson.keySet().stream().sorted().toList();
+        List<String> keyList = generalJson.keySet().stream().sorted().collect(Collectors.toList());
         StringBuilder result = new StringBuilder();
         result.append("{\n");
 
