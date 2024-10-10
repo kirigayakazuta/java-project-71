@@ -1,14 +1,17 @@
 build:
-	./gradlew installDist
+	cd app && ./gradlew installDist
 
 run-dist:
-	./build/install/app/bin/app
+	cd app && ./build/install/app/bin/app
 
 test:
-	./gradlew test -q
+	cd app && ./gradlew test -q
 
-lint:
-	./gradlew checkstyleMain
+linter:
+	cd app && ./gradlew checkstyleMain
 
 test-report:
-	./gradlew jacocoTestReport
+	cd app && ./gradlew jacocoTestReport
+
+clean:
+	cd app && ./gradlew clean
