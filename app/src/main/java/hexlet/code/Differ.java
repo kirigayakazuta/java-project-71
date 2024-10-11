@@ -27,7 +27,7 @@ public class Differ {
         Map<String, String> generalJson = new HashMap<>();
         generalJson.putAll(json1);
         generalJson.putAll(json2);
-        List<String> keyList = generalJson.keySet().stream().sorted().collect(Collectors.toList());
+        List<String> keyList = generalJson.keySet().stream().sorted().toList();
         StringBuilder result = new StringBuilder();
         result.append("{\n");
 

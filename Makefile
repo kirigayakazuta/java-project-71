@@ -15,3 +15,5 @@ test-report:
 
 clean:
 	cd app && ./gradlew clean
+
+.PHONY: build
