@@ -18,26 +18,26 @@ public class Parser {
         return (dotIndex == -1) ? "" : fileName.substring(dotIndex);
     }
 
-    private static String readFile(String path) throws Exception {
+    public static String readFile(String path) throws Exception {
         Path fullPath = Paths.get(path).toAbsolutePath().normalize();
         return Files.readString(fullPath);
     }
 
-    private static Map<String, String> deserializeJSON(String path) throws Exception {
+    private static Map<String, Object> deserializeJSON(String path) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         String content = readFile(path);
-        return mapper.readValue(content, new TypeReference<Map<String, String>>(){});
+        return mapper.readValue(content, new TypeReference<Map<String, Object>>(){});
     }
 
-    private static Map<String, String> deserializeYAML(String path) throws Exception {
+    private static Map<String, Object> deserializeYAML(String path) throws Exception {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
         mapper.findAndRegisterModules();
         String content = readFile(path);
-        return mapper.readValue(content, new TypeReference<Map<String, String>>(){});
+        return mapper.readValue(content, new TypeReference<Map<String, Object>>(){});
     }
 
-    public static Map<String, String> deserialize(String path) throws Exception {
-        Map<String, String> result;
+    public static Map<String, Object> deserialize(String path) throws Exception {
+        Map<String, Object> result;
         String extension = getExtension(path);
         if (extension.equals(".json")) {
             result = deserializeJSON(path);
