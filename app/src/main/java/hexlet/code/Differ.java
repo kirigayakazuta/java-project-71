@@ -55,4 +55,9 @@ public class Differ {
         Map<String, Map<String, Object>> diffMap = getDiffMap(filepath1, filepath2);
         return Formatter.getDifferString(diffMap, format);
     }
+
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        String defaultFormat = "stylish";
+        return generate(filepath1, filepath2, defaultFormat);
+    }
 }

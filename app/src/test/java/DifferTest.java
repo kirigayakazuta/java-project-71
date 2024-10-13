@@ -52,6 +52,22 @@ public class DifferTest {
             """;
 
     @Test
+    public void testWithOutFormatJSON() throws Exception {
+        final String path1 = "src/test/resources/file1.json";
+        final String path2 = "src/test/resources/file2.json";
+        String actual = Differ.generate(path1, path2);
+        assertThat(expectedStylish.trim()).isEqualTo(actual.trim());
+    }
+
+    @Test
+    public void testWithOutFormatYAML() throws Exception {
+        final String path1 = "src/test/resources/file3.yaml";
+        final String path2 = "src/test/resources/file4.yaml";
+        String actual = Differ.generate(path1, path2);
+        assertThat(expectedStylish.trim()).isEqualTo(actual.trim());
+    }
+
+    @Test
     public void testStylishJSON() throws Exception {
         String format = "stylish";
         final String path1 = "src/test/resources/file1.json";

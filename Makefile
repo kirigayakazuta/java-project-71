@@ -1,3 +1,5 @@
+all: build linter test
+
 build:
 	cd app && ./gradlew installDist
 

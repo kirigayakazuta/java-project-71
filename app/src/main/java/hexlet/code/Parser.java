@@ -26,14 +26,16 @@ public class Parser {
     private static Map<String, Object> deserializeJSON(String path) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         String content = readFile(path);
-        return mapper.readValue(content, new TypeReference<Map<String, Object>>(){});
+        return mapper.readValue(content, new TypeReference<Map<String, Object>>() {
+        });
     }
 
     private static Map<String, Object> deserializeYAML(String path) throws Exception {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
         mapper.findAndRegisterModules();
         String content = readFile(path);
-        return mapper.readValue(content, new TypeReference<Map<String, Object>>(){});
+        return mapper.readValue(content, new TypeReference<Map<String, Object>>() {
+        });
     }
 
     public static Map<String, Object> deserialize(String path) throws Exception {
