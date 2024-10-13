@@ -11,6 +11,7 @@ test:
 
 linter:
 	cd app && ./gradlew checkstyleMain
+	cd app && ./gradlew check
 
 test-report:
 	cd app && ./gradlew jacocoTestReport
