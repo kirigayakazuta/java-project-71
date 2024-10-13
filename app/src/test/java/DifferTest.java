@@ -56,7 +56,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file1.json";
         final String path2 = "src/test/resources/file2.json";
         String actual = Differ.generate(path1, path2);
-        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual.trim());
+        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file3.yaml";
         final String path2 = "src/test/resources/file4.yaml";
         String actual = Differ.generate(path1, path2);
-        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual.trim());
+        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file1.json";
         final String path2 = "src/test/resources/file2.json";
         String actual = Differ.generate(path1, path2, format);
-        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual.trim());
+        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file3.yaml";
         final String path2 = "src/test/resources/file4.yaml";
         String actual = Differ.generate(path1, path2, format);
-        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual.trim());
+        assertThat(EXPECTEDSTYLISH.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file1.json";
         final String path2 = "src/test/resources/file2.json";
         String actual = Differ.generate(path1, path2, format);
-        assertThat(EXPECTEDPLAIN.trim()).isEqualTo(actual.trim());
+        assertThat(EXPECTEDPLAIN.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file3.yaml";
         final String path2 = "src/test/resources/file4.yaml";
         String actual = Differ.generate(path1, path2, format);
-        assertThat(EXPECTEDPLAIN.trim()).isEqualTo(actual.trim());
+        assertThat(EXPECTEDPLAIN.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -110,7 +110,7 @@ public class DifferTest {
         final String path1 = "src/test/resources/file1.json";
         final String path2 = "src/test/resources/file2.json";
         String actual = Differ.generate(path1, path2, format);
-        assertThat(expectedJson.trim()).isEqualTo(actual.trim());
+        assertThat(expectedJson.trim()).isEqualTo(actual);
     }
 
     @Test
@@ -120,6 +120,6 @@ public class DifferTest {
         final String path1 = "src/test/resources/file3.yaml";
         final String path2 = "src/test/resources/file4.yaml";
         String actual = Differ.generate(path1, path2, format);
-        assertThat(expectedJson.trim()).isEqualTo(actual.trim());
+        assertThat(expectedJson.trim()).isEqualTo(actual);
     }
 }
